@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curriculo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: rgb(182, 181, 181);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            max-width: 1000px;
+            min-height: 1000px;
+            background: rgb(80, 79, 79);
+            margin: 50px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            box-shadow: 0 35px 55px rgba(0, 0, 0, 0.1);
+        }
+
+        .container .left_Side {
+            position: relative;
+            background: #003147;
+            padding: 40px;
+        }
+
+        .profileText {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .profileText .imgBx {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        .profileText .imgBx img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+        }
+
+        .profileText h2 {
+            color: #fff;
+            font-size: 1.5em;
+            margin-top: 20px;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 600;
+            line-height: 1.4em;
+        }
+
+        .profileText h2 span {
+            font-size: 0.8em;
+            font-weight: 300;
+        }
+
+        .contactInfo {
+            padding-top: 40px;
+        }
+
+        .title {
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+
+        .contactInfo ul {
+            position: relative;
+        }
+
+        .contactInfo ul li {
+            position: relative;
+            list-style: none;
+            margin: 10px 0;
+            cursor: pointer;
+        }
+
+        .contactInfo ul li .icon {
+            display: inline-block;
+            width: 30px;
+            font-size: 20px;
+            color: #03a9f4;
+        }
+
+        .linkedin {
+            color: #03a9f4;
+            text-decoration: none;
+            border-bottom: 2px solid;
+        }
+
+        .linkedin:hover {
+            color: #2a7da2;
+        }
+
+        .github {
+            color: #03a9f4;
+            text-decoration: none;
+            border-bottom: 2px solid;
+        }
+
+        .github:hover {
+            color: #2a7da2;
+        }
+
+        .contactInfo ul li span {
+            color: #fff;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .contactInfo.education li {
+            margin-bottom: 15px;
+        }
+
+        .contactInfo.education h5 {
+            color: #03a9f4;
+            font-weight: 500;
+        }
+
+        .contactInfo.education h4:nth-child(2) {
+            color: #fff;
+            font-weight: 500;
+        }
+
+        .contactInfo.education h4 {
+            color: #fff;
+            font-weight: 300;
+        }
+
+        .contactInfo.language .percent {
+            position: relative;
+            width: 100%;
+            height: 6px;
+            background: #081921;
+            display: block;
+            margin-top: 5px;
+        }
+
+        .contactInfo.language .percent div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: #03a9f4;
+        }
+
+        .container .right_Side {
+            position: relative;
+            background: white;
+            padding: 40px;
+        }
+
+        .about {
+            margin-bottom: 50px;
+        }
+
+        .about:last-child {
+            margin-bottom: 0;
+        }
+
+        .title2 {
+            color: #003147;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #333;
+        }
+
+        .about .box {
+            display: flex;
+            flex-direction: row;
+            margin: 20px 0;
+        }
+
+        .about .box .year_company {
+            min-width: 150px;
+        }
+
+        .about .box .year_company h5 {
+            text-transform: uppercase;
+            color: #848c90;
+            font-weight: 600;
+        }
+
+        .about .box .text h4 {
+            text-transform: uppercase;
+            color: #2a7da2;
+            font-size: 16px;
+        }
+
+        .skills .box {
+            position: relative;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .skills .box h4 {
+            text-transform: uppercase;
+            color: #848c99;
+            font-weight: 500;
+        }
+
+        .skills .box .percent {
+            position: relative;
+            width: 100%;
+            height: 10px;
+            background: #fff;
+        }
+
+        .skills .box .percent div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: #03a9f4;
+        }
+
+        .interest ul {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        .interest ul li {
+            list-style: none;
+            color: #333;
+            font-weight: 500;
+            margin: 10px;
+        }
+
+        .interest ul li .fa {
+            color: #03a9f4;
+            font-size: 15px;
+            width: 20px;
+        }
+
+        @media (max-width: 1000px) {
+            .container {
+                margin: 10px;
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .interest ul {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .about .box {
+                flex-direction: column;
+            }
+
+            .about .box .year_company {
+                margin-bottom: 5px;
+            }
+
+            .interest ul {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .skills .box {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left_Side">
+            <div class="profileText">
+                <div class="imgBx">
+                    <img src="img.jpeg">
+                </div>
+                <h2>Lucas Costa<br><span>Desenvolvedor de Sistema</span></h2>
+            </div>
+
+            <div class="contactInfo">
+                <h3 class="title">Contato</h3>
+                <ul>
+                    <li>
+                        <span class="icon"><i class="fa fa-whatsapp" aria-hidden="true"></i>
+                        </span>
+                        <span class="text">+55 21 96422-8902</span>
+                    </li>
+                    <li>
+                        <span class="icon"><i class="fa fa-envelope" aria-hidden="true"></i>
+                        </span>
+                        <span class="text">lucasrangelcosta@gmail.com</span>
+                    </li>
+                    <li>
+                        <span class="icon">
+                            <a href="https://www.linkedin.com/in/lucasr-costa/" target="_blank" class="linkedin">
+                                <i class="fa fa-linkedin" aria-hidden="true"></i>
+                            </a>
+                        </span>
+                        <span class="text">
+                            <a href="https://www.linkedin.com/in/lucasr-costa/" target="_blank"
+                                class="linkedin">Linkedin</a>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="icon">
+                            <a href="https://github.com/lucasrangelcosta" target="_blank" class="github">
+                                <i class="fa fa-github" aria-hidden="true"></i>
+                            </a>
+                        </span>
+                        <span class="text">
+                            <a href="https://github.com/lucasrangelcosta" target="_blank" class="github">GitHub</a>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                        </span>
+                        <span class="text">Mesquita, Rio de Janeiro, Brasil</span>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="contactInfo education">
+                <h3 class="title">Educação</h3>
+                <ul>
+                    <li>
+                        <h5>2014 - 2017</h5>
+                        <h4>Ensino Medio</h4>
+                        <h4>Colégio Curso Equipe Grau</h4>
+                    </li>
+                </ul>
+            </div>
+            <div class="contactInfo language">
+                <h3 class="title">Idiomas</h3>
+                <ul>
+                    <li>
+                        <span class="text">Inglês</span>
+                        <span class="percent">
+                            <div style="width:70%;"></div>
+                        </span>
+                    </li>
+                    <li>
+                        <span class="text">Espanhol</span>
+                        <span class="percent">
+                            <div style="width:45%;"></div>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="right_Side">
+            <div class="about">
+                <h2 class="title2">Sobre Mim</h2>
+                <p>Sou um profissional altamente proativo e dedicado, comprometido em alcançar excelência em
+                    todas as áreas da minha vida. <br><br>Minha capacidade de aprendizado rápido e habilidade natural
+                    para
+                    estabelecer relações interpessoais me permitem contribuir significativamente para o sucesso da
+                    equipe e da organização. Estou constantemente empenhado em melhorar tanto pessoal quanto
+                    profissionalmente, buscando oportunidades para crescer e evoluir.</p>
+            </div>
+            <div class="about">
+                <h2 class="title2">Experiência Profissional</h2>
+                <div class="box">
+                    <div class="year_company">
+                        <h5>07/2024 - Presente</h5>
+                        <h5>Crosssystem Tecnologia da Informação </h5>
+                    </div>
+                    <div class="text">
+                        <h4>Desenvolvedor Junior (Em Treinamento)</h4>
+                        <p>Desenvolvedor Front-End com foco em React Native e Next.js, especializado na criação de
+                            interfaces responsivas e de alta qualidade.
+                            Transformo protótipos em componentes funcionais e colaboro com equipes de design para
+                            garantir layouts alinhados às tendências do mercado.</p>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="year_company">
+                        <h5>Periodo <br>Extra-Natal</h5>
+                        <h5>Loja Fisico e Forma</h5>
+                    </div>
+                    <div class="text">
+                        <h4>Vendedor</h4>
+                        <p>Trabalhei como vendedor, auxiliando clientes e organizando a loja e o estoque para manter um
+                            ambiente de compras eficiente e agradável.</p>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <div class="year_company">
+                        <h5>01/2022 - 06/2023</h5>
+                        <h5>Imobiliária <br>Approva Fácil</h5>
+                    </div>
+                    <div class="text">
+                        <h4>Corretor Imobiliário</h4>
+                        <p>Auxiliei clientes na seleção de imóveis, oferecendo análises de mercado e conduzindo
+                            negociações.
+                            Assegurei a satisfação dos clientes e o cumprimento das metas, mantendo um serviço
+                            personalizado e acompanhamento contínuo.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about skills">
+                <h2 class="title2">Habilidades profissional</h2>
+                <div class="box">
+                    <h4>HTML</h4>
+                    <div class="percent">
+                        <div style="width: 95%;"></div>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <h4>CSS</h4>
+                    <div class="percent">
+                        <div style="width: 85%;"></div>
+                    </div>
+                </div>
+
+
+                <div class="box">
+                    <h4>JavaScript</h4>
+                    <div class="percent">
+                        <div style="width: 80%;"></div>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <h4>ReactNative</h4>
+                    <div class="percent">
+                        <div style="width: 65%;"></div>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <h4>Next.JS</h4>
+                    <div class="percent">
+                        <div style="width: 65%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about interest">
+                <h2 class="title2">Interesses</h2>
+                <ul>
+                    <li>
+                        <i class="fa fa-futbol-o" aria-hidden="true"></i> Futebol
+                    </li>
+                    <li>
+                        <i class="fa fa-cutlery" aria-hidden="true"></i> Cozinhar
+                    </li>
+                    <li>
+                        <i class="fa fa-flag-checkered" aria-hidden="true"></i> Formula 1
+                    </li>
+                    <li>
+                        <i class="fa fa-television" aria-hidden="true"></i> Series
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
